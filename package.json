@@ -1,0 +1,13 @@
+{
+  "scripts": {
+    "build": "sass styles/scss:styles/css --style=compressed",
+    "watch": "sass styles/scss:styles/css --watch"
+  },
+  "dependencies": {
+    "bootstrap": "^5.3.8"
+  },
+  "devDependencies": {
+    "prettier": "^3.8.3",
+    "sass": "^1.99.0"
+  }
+}
