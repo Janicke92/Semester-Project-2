@@ -1,11 +1,54 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    
-</body>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="styles/css/style.css" />
+        <title>Document</title>
+    </head>
+    <body>
+        <header>
+            <a href="index.html">Logo</a>
+            <nav>
+                <ul>
+                    <li>Credits:</li>
+                    <li><a href="create.html">New listing</a></li>
+                    <li><a href="profile.html">Profile</a></li>
+                    <li><a href="login.html">Login</a></li>
+                </ul>
+            </nav>
+        </header>
+        <main>
+            <form id="register-form">
+                <div>
+                    <label for="name">Name</label>
+                    <input id="name" type="text" name="name" required />
+                </div>
+
+                <div>
+                    <label for="email">Email</label>
+                    <input id="email" type="email" name="email" required />
+                </div>
+
+                <div>
+                    <label for="password">Password</label>
+                    <input
+                        id="password"
+                        type="password"
+                        name="password"
+                        required
+                    />
+                </div>
+
+                <div>
+                    <label for="avatar">Avatar URL</label>
+                    <input id="avatar" type="url" name="avatar" required />
+                </div>
+                <p id="register-error" style="color: red"></p>
+                <button type="submit">Register</button>
+            </form>
+        </main>
+
+        <script type="module" src="/src/main.js"></script>
+    </body>
 </html>
