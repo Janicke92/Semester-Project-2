@@ -11,3 +11,7 @@ export function getAccessToken() {
     const auth = getAuthData();
     return auth?.accessToken || null;
 }
+
+export function clearAuthData() {
+    localStorage.removeItem('auth');
+}
