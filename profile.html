@@ -1,11 +1,44 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    
-</body>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="styles/css/style.css" />
+        <title>Document</title>
+    </head>
+    <body>
+        <header>
+            <a href="index.html">Logo</a>
+            <nav>
+                <ul>
+                    <li>Credits:</li>
+                    <li><a href="create.html">New listing</a></li>
+                    <li><a href="profile.html">Profile</a></li>
+                    <li><a href="login.html">Login</a></li>
+                </ul>
+            </nav>
+        </header>
+        <main>
+            <section>
+                <div>Profile picture</div>
+                <div>
+                    <h1>Username</h1>
+                    <p>email</p>
+                </div>
+                <div>
+                    <button>Update profile</button>
+                    <button id="logout-btn">Logout</button>
+                </div>
+            </section>
+            <section>
+                <div>
+                    <h3>Your listings</h3>
+                </div>
+                <div>
+                    <h3>Your bids</h3>
+                </div>
+            </section>
+        </main>
+        <script type="module" src="/src/main.js"></script>
+    </body>
 </html>
