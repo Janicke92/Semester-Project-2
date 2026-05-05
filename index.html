@@ -19,7 +19,52 @@
             </nav>
         </header>
         <main>
-            <section></section>
+            <section>
+                <div>
+                    <div>
+                        <fieldset>
+                            <legend>Sort by:</legend>
+
+                            <div>
+                                <input type="radio" id="newest" name="sort" value="newest" />
+                                <label for="newest">Newest</label>
+                            </div>
+
+                            <div>
+                                <input type="radio" id="ending-soon" name="sort" value="endingSoon" />
+                                <label for="ending-soon">Ending Soon</label>
+                            </div>
+
+                            <div>
+                                <input type="radio" id="most-popular" name="sort" value="mostPopular" />
+                                <label for="most-popular">Most popular</label>
+                            </div>
+                        </fieldset>
+                    </div>
+                    <div>
+                        <fieldset>
+                            <legend>Show:</legend>
+
+                            <div>
+                                <input type="radio" id="active" name="filter" value="active" />
+                                <label for="active">Active listings only</label>
+                            </div>
+
+                            <div>
+                                <input type="radio" id="inactive" name="filter" value="inactive" />
+                                <label for="inactive">Inactive listings only</label>
+                            </div>
+                        </fieldset>
+                    </div>
+                </div>
+                <div id="listings-container"></div>
+                <div>
+                    <button id="prev-page-btn" type="button">Previous</button>
+                </div>
+                <div>
+                    <button id="next-page-btn" type="button">Next</button>
+                </div>
+            </section>
         </main>
         <footer></footer>
         <script type="module" src="/src/main.js"></script>
