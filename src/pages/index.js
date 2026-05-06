@@ -1,4 +1,4 @@
-import { fetchListings } from '../api/listings.js';
+import { fetchListings, searchListings } from '../api/listings.js';
 import { getTimeUntilDate } from '../utils/date.js';
 import { sortByNewest, sortByEndingSoon, sortByMostPopular } from '../utils/sort.js';
 import { filterActiveListings, filterInactiveListings } from '../utils/filter.js';
@@ -7,6 +7,10 @@ export async function initHomePage() {
     const result = await fetchListings();
     const listings = result.data;
     const meta = result.meta;
+
+    const searchInput = document.querySelector('#search-input');
+
+    setupSearch(searchInput);
 
     const nextBtn = document.querySelector('#next-page-btn');
     const prevBtn = document.querySelector('#prev-page-btn');
@@ -126,5 +130,24 @@ function setupPaginationButtons(prevBtn, nextBtn, initialMeta) {
         prevBtn.disabled = currentPage === 1;
 
         renderListings(newListings);
+    });
+}
+
+function setupSearch(searchInput) {
+    searchInput.addEventListener('keydown', async (event) => {
+        if (event.key !== 'Enter') {
+            return;
+        }
+
+        const query = searchInput.value;
+
+        if (!query) {
+            const result = await fetchListings();
+            renderListings(result.data);
+            return;
+        }
+
+        const result = await searchListings(query);
+        renderListings(result.data);
     });
 }
