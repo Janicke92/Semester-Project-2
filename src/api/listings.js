@@ -21,3 +21,15 @@ export async function searchListings(query) {
 
     return result;
 }
+
+export async function fetchListingsByTag(tag) {
+    const response = await fetch(`https://v2.api.noroff.dev/auction/listings?_tag=${tag}&_active=true`);
+
+    const result = await response.json();
+
+    if (!response.ok) {
+        throw new Error('Failed to fetch listings by tag');
+    }
+
+    return result;
+}

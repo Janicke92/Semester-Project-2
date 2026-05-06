@@ -1,4 +1,4 @@
-import { fetchListings, searchListings } from '../api/listings.js';
+import { fetchListings, searchListings, fetchListingsByTag } from '../api/listings.js';
 import { getTimeUntilDate } from '../utils/date.js';
 import { sortByNewest, sortByEndingSoon, sortByMostPopular } from '../utils/sort.js';
 import { filterActiveListings, filterInactiveListings } from '../utils/filter.js';
@@ -8,51 +8,18 @@ export async function initHomePage() {
     const listings = result.data;
     const meta = result.meta;
 
+    const categoryButtons = document.querySelectorAll('[data-category]');
     const searchInput = document.querySelector('#search-input');
-
-    setupSearch(searchInput);
-
     const nextBtn = document.querySelector('#next-page-btn');
     const prevBtn = document.querySelector('#prev-page-btn');
-
-    setupPaginationButtons(prevBtn, nextBtn, meta);
-
     const sortRadios = document.querySelectorAll('input[name="sort"]');
-
-    sortRadios.forEach((radio) => {
-        radio.addEventListener('change', () => {
-            if (radio.value === 'newest' && radio.checked) {
-                const sorted = sortByNewest(listings);
-                renderListings(sorted);
-            }
-
-            if (radio.value === 'endingSoon' && radio.checked) {
-                const sorted = sortByEndingSoon(listings);
-                renderListings(sorted);
-            }
-
-            if (radio.value === 'mostPopular' && radio.checked) {
-                const sorted = sortByMostPopular(listings);
-                renderListings(sorted);
-            }
-        });
-    });
-
     const filterRadios = document.querySelectorAll('input[name="filter"]');
 
-    filterRadios.forEach((radio) => {
-        radio.addEventListener('change', () => {
-            if (radio.value === 'active' && radio.checked) {
-                const filtered = filterActiveListings(listings);
-                renderListings(filtered);
-            }
-
-            if (radio.value === 'inactive' && radio.checked) {
-                const filtered = filterInactiveListings(listings);
-                renderListings(filtered);
-            }
-        });
-    });
+    setupCategoryFilters(categoryButtons);
+    setupSearch(searchInput);
+    setupPaginationButtons(prevBtn, nextBtn, meta);
+    setupSortOptions(sortRadios, listings);
+    setupFilterOptions(filterRadios, listings);
 
     renderListings(listings);
 }
@@ -92,6 +59,43 @@ function renderListings(listings) {
         item.appendChild(endsAt);
 
         container.appendChild(item);
+    });
+}
+
+function setupSortOptions(sortRadios, listings) {
+    sortRadios.forEach((radio) => {
+        radio.addEventListener('change', () => {
+            if (radio.value === 'newest' && radio.checked) {
+                const sorted = sortByNewest(listings);
+                renderListings(sorted);
+            }
+
+            if (radio.value === 'endingSoon' && radio.checked) {
+                const sorted = sortByEndingSoon(listings);
+                renderListings(sorted);
+            }
+
+            if (radio.value === 'mostPopular' && radio.checked) {
+                const sorted = sortByMostPopular(listings);
+                renderListings(sorted);
+            }
+        });
+    });
+}
+
+function setupFilterOptions(filterRadios, listings) {
+    filterRadios.forEach((radio) => {
+        radio.addEventListener('change', () => {
+            if (radio.value === 'active' && radio.checked) {
+                const filtered = filterActiveListings(listings);
+                renderListings(filtered);
+            }
+
+            if (radio.value === 'inactive' && radio.checked) {
+                const filtered = filterInactiveListings(listings);
+                renderListings(filtered);
+            }
+        });
     });
 }
 
@@ -149,5 +153,16 @@ function setupSearch(searchInput) {
 
         const result = await searchListings(query);
         renderListings(result.data);
+    });
+}
+
+function setupCategoryFilters(buttons) {
+    buttons.forEach((button) => {
+        button.addEventListener('click', async () => {
+            const category = button.dataset.category;
+
+            const result = await fetchListingsByTag(category);
+            renderListings(result.data);
+        });
     });
 }
