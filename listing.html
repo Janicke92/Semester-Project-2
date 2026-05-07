@@ -1,11 +1,80 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    
-</body>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="styles/css/style.css" />
+        <title>Document</title>
+    </head>
+    <body>
+        <header>
+            <a href="index.html">Logo</a>
+            <nav>
+                <ul>
+                    <li>Credits:</li>
+                    <li><a href="create.html">New listing</a></li>
+                    <li><a href="profile.html">Profile</a></li>
+                    <li><a href="login.html">Login</a></li>
+                </ul>
+            </nav>
+        </header>
+        <main>
+            <section aria-label="Listing image gallery">
+                <div>
+                    <button id="prev-image-btn" type="button">Previous</button>
+
+                    <img id="main-listing-image" src="" alt="" />
+
+                    <button id="next-image-btn" type="button">Next</button>
+                </div>
+
+                <div id="listing-thumbnails" aria-label="Image thumbnails"></div>
+            </section>
+            <div>
+                <div>
+                    <div>
+                        <h1 id="listing-title"></h1>
+                    </div>
+                    <div>
+                        <p>Listed by</p>
+                        <p id="listing-seller-name"></p>
+                    </div>
+                </div>
+                <div>
+                    <button id="make-bid-btn">Make a bid</button>
+                </div>
+                <div>
+                    <p>
+                        Current bid at:
+                        <span id="listing-current-bid"></span>
+                    </p>
+                    <p id="listing-ends-at"></p>
+                </div>
+                <div>
+                    <p>Bids:</p>
+                    <p id="listing-bid-count"></p>
+                </div>
+            </div>
+            <div>
+                <h3>Description</h3>
+                <p id="listing-description"></p>
+            </div>
+        </main>
+        <div id="bid-modal" class="bid-modal d-none">
+            <div class="bid-modal-content">
+                <button id="close-bid-modal-btn" type="button">X</button>
+
+                <h2>Make your bid!</h2>
+
+                <form id="bid-form">
+                    <input id="bid-amount" type="number" min="1" required />
+
+                    <p>Your available credits: <span id="available-credits"></span></p>
+
+                    <button type="submit">Make your bid!</button>
+                </form>
+            </div>
+        </div>
+        <script type="module" src="/src/main.js"></script>
+    </body>
 </html>

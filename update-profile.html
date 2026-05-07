@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="styles/css/style.css" />
+        <title>Document</title>
+    </head>
+    <body>
+        <header>
+            <a href="index.html">Logo</a>
+            <nav>
+                <ul>
+                    <li>Credits:</li>
+                    <li><a href="create.html">New listing</a></li>
+                    <li><a href="profile.html">Profile</a></li>
+                    <li><a href="login.html">Login</a></li>
+                </ul>
+            </nav>
+        </header>
+        <main>
+            <form id="update-profile-form">
+                <div>
+                    <label for="profile-bio">Bio</label>
+
+                    <textarea id="profile-bio"></textarea>
+                </div>
+
+                <div>
+                    <label for="profile-avatar-url">Avatar URL</label>
+
+                    <input type="url" id="profile-avatar-url" />
+                </div>
+
+                <div>
+                    <label for="profile-banner-url">Banner URL</label>
+
+                    <input type="url" id="profile-banner-url" />
+                </div>
+
+                <button type="submit">Update profile</button>
+            </form>
+        </main>
+
+        <script type="module" src="/src/main.js"></script>
+    </body>
+</html>

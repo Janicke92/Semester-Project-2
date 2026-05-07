@@ -20,24 +20,49 @@
         </header>
         <main>
             <section>
-                <div>Profile picture</div>
+                <img id="profile-avatar" src="/assets/images/profile-placeholder.svg" alt="Profile avatar" />
+
                 <div>
-                    <h1>Username</h1>
-                    <p>email</p>
+                    <h1 id="profile-name">Username</h1>
+
+                    <p id="profile-email">email</p>
+
+                    <p id="profile-credits">0 credits</p>
                 </div>
+
                 <div>
-                    <button>Update profile</button>
+                    <button id="update-profile-btn">Update profile</button>
+
                     <button id="logout-btn">Logout</button>
                 </div>
             </section>
+
             <section>
-                <div>
-                    <h3>Your listings</h3>
-                </div>
-                <div>
-                    <h3>Your bids</h3>
-                </div>
+                <h2>Your listings</h2>
+
+                <div id="profile-listings-container"></div>
             </section>
+
+            <section>
+                <h2>Your bids</h2>
+
+                <div id="profile-bids-container"></div>
+            </section>
+            <div id="manage-listing-modal" class="d-none">
+                <div>
+                    <button id="close-manage-listing-modal-btn" type="button">X</button>
+
+                    <h2>Manage listing</h2>
+
+                    <div id="manage-listing-preview"></div>
+
+                    <div>
+                        <button id="update-listing-btn" type="button">Update listing</button>
+
+                        <button id="delete-listing-btn" type="button">Delete listing</button>
+                    </div>
+                </div>
+            </div>
         </main>
         <script type="module" src="/src/main.js"></script>
     </body>
