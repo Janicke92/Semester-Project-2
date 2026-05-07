@@ -1,9 +1,15 @@
 import { fetchListings, searchListings, fetchListingsByTag } from '../api/listings.js';
-import { getTimeUntilDate } from '../utils/date.js';
 import { sortByNewest, sortByEndingSoon, sortByMostPopular } from '../utils/sort.js';
 import { filterActiveListings, filterInactiveListings } from '../utils/filter.js';
+import { createListingCard } from '../components/listingCard.js';
 
 export async function initHomePage() {
+    const listingsContainer = document.querySelector('#listings-container');
+
+    if (!listingsContainer) {
+        return;
+    }
+
     const result = await fetchListings();
     const listings = result.data;
     const meta = result.meta;
@@ -30,35 +36,11 @@ function renderListings(listings) {
     container.innerHTML = '';
 
     listings.forEach((listing) => {
-        const item = document.createElement('div');
-
-        item.addEventListener('click', () => {
+        const card = createListingCard(listing, () => {
             window.location.href = `/listing.html?id=${listing.id}`;
         });
 
-        const image = document.createElement('img');
-        image.src = listing.media?.[0]?.url || '';
-        image.alt = listing.media?.[0]?.alt || 'Listing image';
-
-        image.onerror = () => {
-            image.src = 'https://placehold.co/300x200?text=No+Image';
-        };
-
-        const title = document.createElement('h3');
-        title.textContent = listing.title;
-
-        const bids = document.createElement('p');
-        bids.textContent = `Bids: ${listing._count?.bids || 0}`;
-
-        const endsAt = document.createElement('p');
-        endsAt.textContent = `Ends in: ${getTimeUntilDate(listing.endsAt)}`;
-
-        item.appendChild(image);
-        item.appendChild(title);
-        item.appendChild(bids);
-        item.appendChild(endsAt);
-
-        container.appendChild(item);
+        container.append(card);
     });
 }
 

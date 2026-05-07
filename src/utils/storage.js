@@ -15,3 +15,7 @@ export function getAccessToken() {
 export function clearAuthData() {
     localStorage.removeItem('auth');
 }
+
+export function isLoggedIn() {
+    return Boolean(getAuthData()?.accessToken);
+}
