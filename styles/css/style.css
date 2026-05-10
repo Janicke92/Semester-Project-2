@@ -12076,6 +12076,7 @@ button[type=submit] {
   display: flex;
   align-items: center;
   gap: 0.5rem;
+  color: #fe7906;
 }
 .button-primary:hover {
   border-color: #fe7906;

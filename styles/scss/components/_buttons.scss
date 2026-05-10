@@ -58,6 +58,7 @@ button[type='submit'] {
     display: flex;
     align-items: center;
     gap: 0.5rem;
+    color: $color-primary;
 
     &:hover {
         border-color: $color-primary;
