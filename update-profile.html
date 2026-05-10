@@ -4,44 +4,150 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="stylesheet" href="styles/css/style.css" />
-        <title>Document</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet" />
+        <link rel="icon" type="image/svg+xml" href="/assets/icons/Icon-G.svg" />
+        <title>GET Update Profile</title>
     </head>
     <body>
-        <header>
-            <a href="index.html">Logo</a>
-            <nav>
-                <ul>
-                    <li>Credits:</li>
-                    <li><a href="create.html">New listing</a></li>
-                    <li><a href="profile.html">Profile</a></li>
-                    <li><a href="login.html">Login</a></li>
-                </ul>
-            </nav>
+        <header class="d-none d-md-flex">
+            <div class="header-container container">
+                <div>
+                    <a href="index.html"><img src="assets/Logo/logo-get.svg" alt="GET logo" class="header-logo" /></a>
+                </div>
+                <div>
+                    <nav>
+                        <ul>
+                            <li id="credits-container" class="d-none">
+                                Credits:
+                                <span class="available-credits"></span>
+                                <img src="/assets/icons/icon-credit.svg" alt="Credits icon" class="credits-icon" />
+                            </li>
+                            <li>
+                                <a class="nav-icon-link" href="create.html">
+                                    <img src="/assets/icons/icon-new-listing.svg" alt="New listing icon" />
+                                    <span>New listing</span>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a class="nav-icon-link" href="profile.html">
+                                    <img src="/assets/icons/icon-profile.svg" alt="Profile icon" />
+                                    <span>Profile</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
         </header>
-        <main>
-            <form id="update-profile-form">
-                <div>
-                    <label for="profile-bio">Bio</label>
-
-                    <textarea id="profile-bio"></textarea>
+        <header class="mobile-header d-md-none">
+            <div class="container">
+                <div class="mt-4 mb-3">
+                    <input type="text" id="search-input" placeholder="Search" />
                 </div>
 
-                <div>
-                    <label for="profile-avatar-url">Avatar URL</label>
+                <div class="d-flex justify-content-between align-items-center">
+                    <div>
+                        Credits:
+                        <span class="available-credits"></span>
 
-                    <input type="url" id="profile-avatar-url" />
+                        <img src="/assets/icons/icon-credit.svg" alt="Credits icon" class="credits-icon" />
+                    </div>
                 </div>
+            </div>
+        </header>
+        <main class="container mt-5">
+            <section class="container form-container">
+                <div><h1>Update profile</h1></div>
+                <form id="update-profile-form" class="all-form">
+                    <div>
+                        <label for="profile-bio" class="form-label">Bio</label>
 
-                <div>
-                    <label for="profile-banner-url">Banner URL</label>
+                        <textarea id="profile-bio" class="form-input"></textarea>
+                    </div>
 
-                    <input type="url" id="profile-banner-url" />
-                </div>
+                    <div>
+                        <label for="profile-avatar-url" class="form-label">Avatar URL</label>
 
-                <button type="submit">Update profile</button>
-            </form>
+                        <input type="url" id="profile-avatar-url" class="form-input" />
+                    </div>
+
+                    <div>
+                        <label for="profile-banner-url" class="form-label">Banner URL</label>
+
+                        <input type="url" id="profile-banner-url" class="form-input" />
+                    </div>
+
+                    <button type="submit" class="button-primary">Update profile</button>
+                </form>
+            </section>
         </main>
+        <nav class="bottom-nav d-md-none" aria-label="Mobile navigation">
+            <a href="index.html" class="bottom-nav-link">
+                <img src="/assets/Logo/logo-get.svg" alt="" class="bottom-nav-logo" />
+                <span>Home</span>
+            </a>
 
+            <a href="create.html" class="bottom-nav-link">
+                <img src="/assets/icons/icon-new-listing.svg" alt="" class="bottom-nav-icon" />
+                <span>New Listing</span>
+            </a>
+
+            <a href="profile.html" class="bottom-nav-link active">
+                <img src="/assets/icons/icon-profile.svg" alt="" class="bottom-nav-icon" />
+                <span>Profile</span>
+            </a>
+        </nav>
+        <footer class="d-none d-md-flex">
+            <div class="footer-content">
+                <div>
+                    <a href="index.html" class="footer-link">
+                        <img src="/assets/Logo/logo-get.svg" alt="" class="footer-icon" />
+                    </a>
+                </div>
+                <div>
+                    <h4>Socials</h4>
+                    <ul>
+                        <li>
+                            <a href="https://x.com/" class="footer-link">
+                                <img src="/assets/icons/twitter.svg" alt="" class="footer-icon" />
+                                <span>Twitter</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.facebook.com/" class="footer-link">
+                                <img src="/assets/icons/facbook.svg" alt="" class="footer-icon" />
+                                <span>Facebook</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.instagram.com/?hl=en/" class="footer-link">
+                                <img src="/assets/icons/instagram.svg" alt="" class="footer-icon" />
+                                <span>Instagram</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>About</h4>
+                    <ul>
+                        <li>GET inspired</li>
+                        <li>Work at GET</li>
+                        <li>Our environment plan</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Help</h4>
+                    <ul>
+                        <li>Customer service</li>
+                        <li>Terms & conditions</li>
+                        <li>Privacy policy</li>
+                    </ul>
+                </div>
+            </div>
+        </footer>
         <script type="module" src="/src/main.js"></script>
     </body>
 </html>

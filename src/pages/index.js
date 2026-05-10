@@ -2,6 +2,7 @@ import { fetchListings, searchListings, fetchListingsByTag } from '../api/listin
 import { sortByNewest, sortByEndingSoon, sortByMostPopular } from '../utils/sort.js';
 import { filterActiveListings, filterInactiveListings } from '../utils/filter.js';
 import { createListingCard } from '../components/listingCard.js';
+import { openModal, closeModal } from '../components/modal.js';
 
 export async function initHomePage() {
     const listingsContainer = document.querySelector('#listings-container');
@@ -9,10 +10,6 @@ export async function initHomePage() {
     if (!listingsContainer) {
         return;
     }
-
-    const result = await fetchListings();
-    const listings = result.data;
-    const meta = result.meta;
 
     const categoryButtons = document.querySelectorAll('[data-category]');
     const searchInput = document.querySelector('#search-input');
@@ -23,6 +20,28 @@ export async function initHomePage() {
 
     setupCategoryFilters(categoryButtons);
     setupSearch(searchInput);
+    setupFilterModal();
+
+    const params = new URLSearchParams(window.location.search);
+    const searchQuery = params.get('search');
+
+    if (searchQuery) {
+        searchInput.value = searchQuery;
+
+        const result = await searchListings(searchQuery);
+        const listings = result.data;
+
+        setupSortOptions(sortRadios, listings);
+        setupFilterOptions(filterRadios, listings);
+
+        renderListings(listings);
+        return;
+    }
+
+    const result = await fetchListings();
+    const listings = result.data;
+    const meta = result.meta;
+
     setupPaginationButtons(prevBtn, nextBtn, meta);
     setupSortOptions(sortRadios, listings);
     setupFilterOptions(filterRadios, listings);
@@ -146,5 +165,23 @@ function setupCategoryFilters(buttons) {
             const result = await fetchListingsByTag(category);
             renderListings(result.data);
         });
+    });
+}
+
+function setupFilterModal() {
+    const modal = document.querySelector('#filter-modal');
+    const openBtn = document.querySelector('#open-filter-modal-btn');
+    const closeBtn = document.querySelector('#close-filter-modal-btn');
+
+    if (!modal || !openBtn || !closeBtn) {
+        return;
+    }
+
+    openBtn.addEventListener('click', () => {
+        openModal(modal);
+    });
+
+    closeBtn.addEventListener('click', () => {
+        closeModal(modal);
     });
 }

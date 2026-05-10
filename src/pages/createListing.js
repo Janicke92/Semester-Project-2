@@ -1,5 +1,7 @@
 import { addImageInput, getListingFormData } from '../utils/listingForm.js';
 import { createListing } from '../api/listings.js';
+import { setupRedirectSearch } from '../utils/search.js';
+import { isLoggedIn } from '../utils/storage.js';
 
 export function initCreateListingPage() {
     const form = document.querySelector('#create-listing-form');
@@ -8,11 +10,18 @@ export function initCreateListingPage() {
 
     if (!form || !addImageButton || !imageInputContainer) return;
 
+    if (!isLoggedIn()) {
+        window.location.href = '/login.html';
+        return;
+    }
+
     addImageButton.addEventListener('click', () => {
         addImageInput(imageInputContainer);
     });
 
     form.addEventListener('submit', handleCreateListingFormSubmit);
+
+    setupRedirectSearch();
 }
 
 async function handleCreateListingFormSubmit(event) {

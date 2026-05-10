@@ -1,0 +1,63 @@
+@use '../base/variables' as *;
+
+header {
+    border-bottom: 0.5px solid $color-muted;
+}
+
+.header-container {
+    max-width: 1200px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 10px;
+}
+
+header ul {
+    display: flex;
+    align-items: flex-end;
+    list-style: none;
+    gap: 2.5rem;
+    font-size: 14px;
+    padding-top: 20px;
+    color: $color-muted;
+}
+
+header li {
+    min-height: 46px;
+}
+
+#credits-container {
+    display: flex;
+    align-items: flex-end;
+    gap: 0.2rem;
+}
+
+.credits-icon {
+    padding-bottom: 2px;
+}
+
+.nav-icon-link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: $color-muted;
+}
+
+.nav-icon-link:hover {
+    color: $color-primary;
+}
+
+header a {
+    text-decoration: none;
+}
+
+.header-logo {
+    max-height: 58px;
+}
+
+.mobile-search-bar {
+    @media (max-width: 767px) {
+        box-shadow: $shadow-card;
+    }
+}

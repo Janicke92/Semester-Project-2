@@ -1,0 +1,42 @@
+@use '../base/variables' as *;
+
+h1 {
+    font-size: 20px;
+    font-weight: 700;
+}
+
+h2 {
+    font-size: 24px;
+}
+
+h3 {
+    font-size: 16px;
+}
+
+p {
+    font-size: 14px;
+}
+
+.section-header {
+    font-weight: 700;
+    color: $color-primary;
+    font-size: 16px;
+}
+
+.text-brand-primary {
+    color: $color-primary;
+}
+
+@media (min-width: 992px) {
+    h1 {
+        font-size: 26px;
+    }
+
+    h2 {
+        font-size: 26px;
+    }
+
+    p {
+        font-size: 16px;
+    }
+}

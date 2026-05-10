@@ -1,2 +1,23 @@
-@use "../../node_modules/bootstrap/scss/bootstrap.scss";
+@use '../../node_modules/bootstrap/scss/bootstrap.scss';
 
+@use './base/global';
+
+@use './layout/header';
+
+@use './components/forms';
+
+@use './components/buttons';
+
+@use './components/listing-card';
+
+@use './base/typography';
+
+@use './components/carousel';
+
+@use './components/modals';
+
+@use 'components/bottom-nav';
+
+@use 'components/avatar';
+
+@use './layout/footer';

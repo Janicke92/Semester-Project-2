@@ -6,6 +6,7 @@ import { initListingPage } from './pages/listing.js';
 import { initCreateListingPage } from './pages/createListing.js';
 import { initUpdateListingPage } from './pages/updateListing.js';
 import { initUpdateProfilePage } from './pages/updateProfile.js';
+import { initHeaderCredits } from './components/userCredits.js';
 
 initRegisterPage();
 
@@ -22,3 +23,5 @@ initCreateListingPage();
 initUpdateListingPage();
 
 initUpdateProfilePage();
+
+initHeaderCredits();

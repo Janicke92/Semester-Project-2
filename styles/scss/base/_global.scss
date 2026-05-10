@@ -1,0 +1,18 @@
+@use './variables' as *;
+
+body {
+    margin: 0;
+    font-family: $font-primary;
+    background-color: $color-background;
+    color: $color-text;
+}
+
+main.container {
+    max-width: 1200px;
+}
+
+main ul {
+    display: flex;
+    align-items: flex-end;
+    list-style: none;
+}

@@ -4,72 +4,109 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="stylesheet" href="styles/css/style.css" />
-        <title>Document</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet" />
+        <link rel="icon" type="image/svg+xml" href="/assets/icons/Icon-G.svg" />
+        <title>GET Browse</title>
     </head>
     <body>
-        <header>
-            <a href="index.html">Logo</a>
-            <nav>
-                <ul>
-                    <li>Credits:</li>
-                    <li><a href="create.html">New listing</a></li>
-                    <li><a href="profile.html">Profile</a></li>
-                    <li><a href="login.html">Login</a></li>
-                </ul>
-            </nav>
-        </header>
-        <main>
-            <section>
-                <div><input type="text" id="search-input" placeholder="Search" /></div>
+        <header class="d-none d-md-flex">
+            <div class="header-container container">
                 <div>
-                    <ul class="category-list">
+                    <a href="index.html"><img src="assets/Logo/logo-get.svg" alt="GET logo" class="header-logo" /></a>
+                </div>
+                <div>
+                    <nav>
+                        <ul>
+                            <li id="credits-container" class="d-none">
+                                Credits:
+                                <span class="available-credits"></span>
+                                <img src="/assets/icons/icon-credit.svg" alt="Credits icon" class="credits-icon" />
+                            </li>
+                            <li>
+                                <a class="nav-icon-link" href="create.html">
+                                    <img src="/assets/icons/icon-new-listing.svg" alt="New listing icon" />
+                                    <span>New listing</span>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a class="nav-icon-link" href="profile.html">
+                                    <img src="/assets/icons/icon-profile.svg" alt="Profile icon" />
+                                    <span>Profile</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </header>
+        <main class="container">
+            <section>
+                <div class="mt-4 mb-3"><input type="text" id="search-input" placeholder="Search" /></div>
+                <div class="d-flex justify-content-between align-items-center">
+                    <div>
+                        <button id="open-filter-modal-btn" class="d-md-none button-primary" type="button">Filter</button>
+                    </div>
+
+                    <div class="d-md-none">
+                        Credits:
+                        <span class="available-credits"></span>
+
+                        <img src="/assets/icons/icon-credit.svg" alt="Credits icon" class="credits-icon" />
+                    </div>
+                </div>
+
+                <div class="container w-100 m-0 px-0 mt-4">
+                    <ul class="category-list d-flex justify-content-between w-100 ps-0">
                         <li>
-                            <button data-category="fashion">
-                                <img src="/assets/icons/fashion.svg" alt="fashion icon" /> <span>Fashion</span>
+                            <button data-category="fashion" class="category-button">
+                                <img src="/assets/icons/fashion.svg" alt="fashion icon" class="category-icon" /> <span>Fashion</span>
                             </button>
                         </li>
                         <li>
-                            <button data-category="sport">
-                                <img src="/assets/icons/sport.svg" alt="sport icon" /> <span>Sport</span>
+                            <button data-category="sport" class="category-button" class="category-button">
+                                <img src="/assets/icons/sport.svg" alt="sport icon" class="category-icon" /> <span>Sport</span>
                             </button>
                         </li>
                         <li>
-                            <button data-category="electronics">
-                                <img src="/assets/icons/electronics.svg" alt="electronics icon" />
+                            <button data-category="electronics" class="category-button">
+                                <img src="/assets/icons/electronics.svg" alt="electronics icon" class="category-icon" />
                                 <span>Electronics</span>
                             </button>
                         </li>
                         <li>
-                            <button data-category="furniture">
-                                <img src="/assets/icons/furniture.svg" alt="furniture icon" /> <span>Furniture</span>
+                            <button data-category="furniture" class="category-button">
+                                <img src="/assets/icons/furniture.svg" alt="furniture icon" class="category-icon" /> <span>Furniture</span>
                             </button>
                         </li>
                         <li>
-                            <button data-category="art">
-                                <img src="/assets/icons/art.svg" alt="Art icon" /> <span>Art</span>
+                            <button data-category="art" class="category-button">
+                                <img src="/assets/icons/art.svg" alt="Art icon" class="category-icon" /> <span>Art</span>
                             </button>
                         </li>
                         <li>
-                            <button data-category="car">
-                                <img src="/assets/icons/car.svg" alt="Cars icon" /> <span>Cars</span>
+                            <button data-category="car" class="category-button">
+                                <img src="/assets/icons/car.svg" alt="Cars icon" class="category-icon" /> <span>Cars</span>
                             </button>
                         </li>
                         <li>
-                            <button data-category="plant">
-                                <img src="/assets/icons/plants.svg" alt="Plant icon" /> <span>Plants</span>
+                            <button data-category="plant" class="category-button">
+                                <img src="/assets/icons/plants.svg" alt="Plant icon" class="category-icon" /> <span>Plants</span>
                             </button>
                         </li>
                         <li>
-                            <button data-category="book">
-                                <img src="/assets/icons/books.svg" alt="Books icon" /> <span>Books</span>
+                            <button data-category="book" class="category-button">
+                                <img src="/assets/icons/books.svg" alt="Books icon" class="category-icon" /> <span>Books</span>
                             </button>
                         </li>
                     </ul>
                 </div>
             </section>
-            <section>
-                <div>
-                    <div>
+            <section class="row mt-5">
+                <div class="sort-filter-container col d-none d-md-block">
+                    <div class="mb-4">
                         <fieldset>
                             <legend>Sort by:</legend>
 
@@ -105,7 +142,11 @@
                         </fieldset>
                     </div>
                 </div>
-                <div id="listings-container"></div>
+                <div class="col-md-8 col-lg-10">
+                    <div id="listings-container" class="row g-4"></div>
+                </div>
+            </section>
+            <section class="d-flex gap-3 justify-content-center">
                 <div>
                     <button id="prev-page-btn" type="button">Previous</button>
                 </div>
@@ -113,8 +154,119 @@
                     <button id="next-page-btn" type="button">Next</button>
                 </div>
             </section>
+            <div id="filter-modal" class="app-modal d-none d-md-none">
+                <div class="app-modal-content">
+                    <button id="close-filter-modal-btn" class="app-modal-close-btn" type="button">X</button>
+
+                    <h2>Filter listings</h2>
+
+                    <div class="sort-filter-container">
+                        <div class="mb-4">
+                            <fieldset>
+                                <legend>Sort by:</legend>
+
+                                <div>
+                                    <input type="radio" id="mobile-newest" name="sort" value="newest" />
+                                    <label for="mobile-newest">Newest</label>
+                                </div>
+
+                                <div>
+                                    <input type="radio" id="mobile-ending-soon" name="sort" value="endingSoon" />
+                                    <label for="mobile-ending-soon">Ending Soon</label>
+                                </div>
+
+                                <div>
+                                    <input type="radio" id="mobile-most-popular" name="sort" value="mostPopular" />
+                                    <label for="mobile-most-popular">Most popular</label>
+                                </div>
+                            </fieldset>
+                        </div>
+
+                        <div>
+                            <fieldset>
+                                <legend>Show:</legend>
+
+                                <div>
+                                    <input type="radio" id="mobile-active" name="filter" value="active" />
+                                    <label for="mobile-active">Active listings only</label>
+                                </div>
+
+                                <div>
+                                    <input type="radio" id="mobile-inactive" name="filter" value="inactive" />
+                                    <label for="mobile-inactive">Inactive listings only</label>
+                                </div>
+                            </fieldset>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </main>
         <footer></footer>
+        <nav class="bottom-nav d-md-none" aria-label="Mobile navigation">
+            <a href="index.html" class="bottom-nav-link active">
+                <img src="/assets/Logo/logo-get.svg" alt="" class="bottom-nav-logo" />
+                <span>Home</span>
+            </a>
+
+            <a href="create.html" class="bottom-nav-link">
+                <img src="/assets/icons/icon-new-listing.svg" alt="" class="bottom-nav-icon" />
+                <span>New Listing</span>
+            </a>
+
+            <a href="profile.html" class="bottom-nav-link">
+                <img src="/assets/icons/icon-profile.svg" alt="" class="bottom-nav-icon" />
+                <span>Profile</span>
+            </a>
+        </nav>
+
+        <footer class="d-none d-md-flex">
+            <div class="footer-content">
+                <div>
+                    <a href="index.html" class="footer-link">
+                        <img src="/assets/Logo/logo-get.svg" alt="" class="footer-icon" />
+                    </a>
+                </div>
+                <div>
+                    <h4>Socials</h4>
+                    <ul>
+                        <li>
+                            <a href="https://x.com/" class="footer-link">
+                                <img src="/assets/icons/twitter.svg" alt="" class="footer-icon" />
+                                <span>Twitter</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.facebook.com/" class="footer-link">
+                                <img src="/assets/icons/facbook.svg" alt="" class="footer-icon" />
+                                <span>Facebook</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.instagram.com/?hl=en/" class="footer-link">
+                                <img src="/assets/icons/instagram.svg" alt="" class="footer-icon" />
+                                <span>Instagram</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>About</h4>
+                    <ul>
+                        <li>GET inspired</li>
+                        <li>Work at GET</li>
+                        <li>Our environment plan</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Help</h4>
+                    <ul>
+                        <li>Customer service</li>
+                        <li>Terms & conditions</li>
+                        <li>Privacy policy</li>
+                    </ul>
+                </div>
+            </div>
+        </footer>
         <script type="module" src="/src/main.js"></script>
     </body>
 </html>

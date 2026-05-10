@@ -1,0 +1,77 @@
+@use '../base/variables' as *;
+
+button {
+    border-width: $border-width;
+    border-radius: $border-radius;
+    background-color: $color-background;
+    font-size: 16px;
+    padding: 5px;
+    min-width: 90px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.category-button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    box-shadow: $shadow-card;
+    font-size: 14px;
+    height: 88px;
+    width: 88px;
+    margin: 10px;
+}
+
+.category-button:hover {
+    border: 1px solid $color-primary;
+}
+
+.category-icon {
+    height: 46px;
+    width: 46px;
+}
+
+.category-list {
+    display: flex;
+    gap: 1rem;
+
+    overflow-x: auto;
+    white-space: nowrap;
+
+    scrollbar-width: none;
+}
+
+.category-list::-webkit-scrollbar {
+    display: none;
+}
+
+button[type='submit'] {
+    display: block;
+    margin: 0 auto;
+}
+
+.button-primary {
+    border-color: $color-secondary;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+
+    &:hover {
+        border-color: $color-primary;
+        background-color: $color-primary;
+        color: $color-background;
+    }
+}
+
+.button-danger {
+    border-color: red;
+    color: red;
+
+    &:hover {
+        background-color: red;
+        color: $color-background;
+    }
+}

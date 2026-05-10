@@ -1,0 +1,76 @@
+@use '../base/variables' as *;
+
+.app-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.45);
+}
+
+.app-modal-content {
+    width: min(100%, 726px);
+    background-color: $color-background;
+    border-radius: $border-radius;
+    box-shadow: $shadow-card;
+    padding: 10px;
+}
+
+.app-modal-content h2 {
+    text-align: center;
+}
+
+.app-modal-close-btn {
+    display: block;
+    margin-left: auto;
+
+    border: none;
+    background: transparent;
+
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: $color-secondary;
+    line-height: 1;
+}
+
+#manage-listing-preview {
+    display: flex;
+    justify-content: center;
+}
+
+.app-modal-actions {
+    display: flex;
+    justify-content: center;
+    gap: 8rem;
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+#bid-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+@media (max-width: 767px) {
+    .app-modal {
+        align-items: flex-end;
+        padding: 0;
+    }
+
+    .app-modal-content {
+        width: 100%;
+        max-height: 85vh;
+        overflow-y: auto;
+        padding: 2rem 1.5rem;
+        border-radius: 1rem 1rem 0 0;
+        transform: translateY(100%);
+        transition: transform 0.25s ease-out;
+    }
+
+    .app-modal.modal-visible .app-modal-content {
+        transform: translateY(0);
+    }
+}

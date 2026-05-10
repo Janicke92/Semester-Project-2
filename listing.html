@@ -4,77 +4,203 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="stylesheet" href="styles/css/style.css" />
-        <title>Document</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet" />
+        <link rel="icon" type="image/svg+xml" href="/assets/icons/Icon-G.svg" />
+        <title>GET Listing</title>
     </head>
     <body>
-        <header>
-            <a href="index.html">Logo</a>
-            <nav>
-                <ul>
-                    <li>Credits:</li>
-                    <li><a href="create.html">New listing</a></li>
-                    <li><a href="profile.html">Profile</a></li>
-                    <li><a href="login.html">Login</a></li>
-                </ul>
-            </nav>
-        </header>
-        <main>
-            <section aria-label="Listing image gallery">
+        <header class="d-none d-md-flex">
+            <div class="header-container container">
                 <div>
-                    <button id="prev-image-btn" type="button">Previous</button>
+                    <a href="index.html"><img src="assets/Logo/logo-get.svg" alt="GET logo" class="header-logo" /></a>
+                </div>
+                <div>
+                    <nav>
+                        <ul>
+                            <li id="credits-container" class="d-none">
+                                Credits:
+                                <span class="available-credits"></span>
+                                <img src="/assets/icons/icon-credit.svg" alt="Credits icon" class="credits-icon" />
+                            </li>
+                            <li>
+                                <a class="nav-icon-link" href="create.html">
+                                    <img src="/assets/icons/icon-new-listing.svg" alt="New listing icon" />
+                                    <span>New listing</span>
+                                </a>
+                            </li>
 
-                    <img id="main-listing-image" src="" alt="" />
-
-                    <button id="next-image-btn" type="button">Next</button>
-                </div>
-
-                <div id="listing-thumbnails" aria-label="Image thumbnails"></div>
-            </section>
-            <div>
-                <div>
-                    <div>
-                        <h1 id="listing-title"></h1>
-                    </div>
-                    <div>
-                        <p>Listed by</p>
-                        <p id="listing-seller-name"></p>
-                    </div>
-                </div>
-                <div>
-                    <button id="make-bid-btn">Make a bid</button>
-                </div>
-                <div>
-                    <p>
-                        Current bid at:
-                        <span id="listing-current-bid"></span>
-                    </p>
-                    <p id="listing-ends-at"></p>
-                </div>
-                <div>
-                    <p>Bids:</p>
-                    <p id="listing-bid-count"></p>
+                            <li>
+                                <a class="nav-icon-link" href="profile.html">
+                                    <img src="/assets/icons/icon-profile.svg" alt="Profile icon" />
+                                    <span>Profile</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
                 </div>
             </div>
-            <div>
-                <h3>Description</h3>
-                <p id="listing-description"></p>
+        </header>
+        <header class="mobile-header d-md-none">
+            <div class="container">
+                <div class="mt-4 mb-3">
+                    <input type="text" id="search-input" placeholder="Search" />
+                </div>
+
+                <div class="d-flex justify-content-between align-items-center">
+                    <div>
+                        Credits:
+                        <span class="available-credits"></span>
+
+                        <img src="/assets/icons/icon-credit.svg" alt="Credits icon" class="credits-icon" />
+                    </div>
+                </div>
+            </div>
+        </header>
+        <main class="container mt-5 pt-5 pb-5 mb-5">
+            <div class="row g-5 align-items-start">
+                <section class="listing-gallery col-md-7 order-1" aria-label="Listing image gallery">
+                    <div class="listing-gallery__main">
+                        <button id="prev-image-btn" class="listing-gallery__btn" type="button">‹</button>
+
+                        <div class="listing-gallery__content">
+                            <img id="main-listing-image" class="listing-gallery__image" src="" alt="" />
+
+                            <div id="listing-thumbnails" class="listing-gallery__thumbnails" aria-label="Image thumbnails"></div>
+                        </div>
+
+                        <button id="next-image-btn" class="listing-gallery__btn" type="button">›</button>
+                    </div>
+                </section>
+
+                <section class="col-md-5 order-2">
+                    <div>
+                        <div>
+                            <div class="mx-4 mx-md-0">
+                                <h1 id="listing-title"></h1>
+                            </div>
+
+                            <div class="mx-4 mx-md-0">
+                                <p class="mb-0">Listed by</p>
+                                <p id="listing-seller-name" class="text-brand-primary"></p>
+                            </div>
+                        </div>
+
+                        <div class="mx-4 mx-md-0">
+                            <button id="make-bid-btn" class="button-primary">Make a bid</button>
+                        </div>
+
+                        <div class="mx-4 mt-3 mx-md-0">
+                            <h1>
+                                Current bid at:
+                                <span id="listing-current-bid" class="text-brand-primary"></span>
+                            </h1>
+
+                            <p id="listing-ends-at"></p>
+                        </div>
+
+                        <div class="mx-4 mx-md-0">
+                            <p class="mb-0">Bids:</p>
+                            <p id="listing-bid-count"></p>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="col-md-6 order-3 mt-4 ms-md-5 mt-md-5">
+                    <div class="listing-gallery__content">
+                        <h3 class="mx-4 mx-md-0 section-header">Description</h3>
+
+                        <p id="listing-description" class="mx-4 mx-md-0"></p>
+                    </div>
+                </section>
+
+                <section class="col-md-5 order-4 d-none d-md-block">
+                    <img class="img-fluid mt-md-0" src="/assets/images/explore.svg" alt="" />
+                </section>
             </div>
         </main>
-        <div id="bid-modal" class="bid-modal d-none">
-            <div class="bid-modal-content">
-                <button id="close-bid-modal-btn" type="button">X</button>
+        <div id="bid-modal" class="app-modal d-none">
+            <div class="app-modal-content">
+                <button id="close-bid-modal-btn" class="app-modal-close-btn" type="button">X</button>
 
-                <h2>Make your bid!</h2>
+                <h2 class="mb-4">Make your bid!</h2>
 
                 <form id="bid-form">
-                    <input id="bid-amount" type="number" min="1" required />
+                    <div class="mb-4">
+                        <input id="bid-amount" type="number" min="1" required />
 
-                    <p>Your available credits: <span id="available-credits"></span></p>
-
-                    <button type="submit">Make your bid!</button>
+                        <p>Your available credits: <span class="available-credits"></span></p>
+                    </div>
+                    <button type="submit" class="mb-4 button-primary">Make your bid!</button>
                 </form>
             </div>
         </div>
+        <nav class="bottom-nav d-md-none" aria-label="Mobile navigation">
+            <a href="index.html" class="bottom-nav-link active">
+                <img src="/assets/Logo/logo-get.svg" alt="" class="bottom-nav-logo" />
+                <span>Home</span>
+            </a>
+
+            <a href="create.html" class="bottom-nav-link">
+                <img src="/assets/icons/icon-new-listing.svg" alt="" class="bottom-nav-icon" />
+                <span>New Listing</span>
+            </a>
+
+            <a href="profile.html" class="bottom-nav-link">
+                <img src="/assets/icons/icon-profile.svg" alt="" class="bottom-nav-icon" />
+                <span>Profile</span>
+            </a>
+        </nav>
+
+        <footer class="d-none d-md-flex">
+            <div class="footer-content">
+                <div>
+                    <a href="index.html" class="footer-link">
+                        <img src="/assets/Logo/logo-get.svg" alt="" class="footer-icon" />
+                    </a>
+                </div>
+                <div>
+                    <h4>Socials</h4>
+                    <ul>
+                        <li>
+                            <a href="https://x.com/" class="footer-link">
+                                <img src="/assets/icons/twitter.svg" alt="" class="footer-icon" />
+                                <span>Twitter</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.facebook.com/" class="footer-link">
+                                <img src="/assets/icons/facbook.svg" alt="" class="footer-icon" />
+                                <span>Facebook</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.instagram.com/?hl=en/" class="footer-link">
+                                <img src="/assets/icons/instagram.svg" alt="" class="footer-icon" />
+                                <span>Instagram</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>About</h4>
+                    <ul>
+                        <li>GET inspired</li>
+                        <li>Work at GET</li>
+                        <li>Our environment plan</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Help</h4>
+                    <ul>
+                        <li>Customer service</li>
+                        <li>Terms & conditions</li>
+                        <li>Privacy policy</li>
+                    </ul>
+                </div>
+            </div>
+        </footer>
         <script type="module" src="/src/main.js"></script>
     </body>
 </html>

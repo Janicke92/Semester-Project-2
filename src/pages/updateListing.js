@@ -1,6 +1,6 @@
 import { addImageInput, populateListingForm, getUpdateListingFormData } from '../utils/listingForm.js';
-
 import { fetchListingById, updateListing } from '../api/listings.js';
+import { setupRedirectSearch } from '../utils/search.js';
 
 export function initUpdateListingPage() {
     const form = document.querySelector('#update-listing-form');
@@ -16,6 +16,8 @@ export function initUpdateListingPage() {
     });
 
     form.addEventListener('submit', handleUpdateListingFormSubmit);
+
+    setupRedirectSearch();
 
     loadListing();
 }

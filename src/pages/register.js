@@ -1,5 +1,6 @@
 import { sendRegisterRequest } from '../api/auth.js';
 import { isValidNoroffEmail, isValidPassword, isValidName } from '../utils/validation.js';
+import { setupRedirectSearch } from '../utils/search.js';
 
 function displayRegisterError(message) {
     const errorElement = document.getElementById('register-error');
@@ -15,6 +16,8 @@ export function initRegisterPage() {
     if (!form) return;
 
     form.addEventListener('submit', handleRegisterFormSubmit);
+
+    setupRedirectSearch();
 }
 
 async function handleRegisterFormSubmit(event) {

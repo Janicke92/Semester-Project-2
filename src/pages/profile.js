@@ -3,6 +3,7 @@ import { fetchProfile, fetchProfileListings, fetchProfileBids } from '../api/pro
 import { createListingCard } from '../components/listingCard.js';
 import { openModal, closeModal } from '../components/modal.js';
 import { deleteListing } from '../api/listings.js';
+import { setupRedirectSearch } from '../utils/search.js';
 
 let selectedListing = null;
 
@@ -38,6 +39,8 @@ export function initProfilePage() {
     updateProfileBtn.addEventListener('click', handleUpdateProfile);
 
     loadProfilePage();
+
+    setupRedirectSearch();
 }
 
 function handleLogout() {

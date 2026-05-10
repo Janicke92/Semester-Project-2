@@ -1,5 +1,5 @@
 import { getAccessToken } from '../utils/storage.js';
-import { TEMP_API_KEY } from './config.js';
+import { API_KEY } from './config.js';
 
 export async function fetchListings(page = 1, limit = 100) {
     const response = await fetch(`https://v2.api.noroff.dev/auction/listings?page=${page}&limit=${limit}`);
@@ -57,7 +57,7 @@ export async function createListing(listingData) {
         headers: {
             'Content-Type': 'application/json',
             Authorization: `Bearer ${accessToken}`,
-            'X-Noroff-API-Key': TEMP_API_KEY,
+            'X-Noroff-API-Key': API_KEY,
         },
         body: JSON.stringify(listingData),
     });
@@ -79,7 +79,7 @@ export async function updateListing(id, listingData) {
         headers: {
             'Content-Type': 'application/json',
             Authorization: `Bearer ${accessToken}`,
-            'X-Noroff-API-Key': TEMP_API_KEY,
+            'X-Noroff-API-Key': API_KEY,
         },
         body: JSON.stringify(listingData),
     });
@@ -100,7 +100,7 @@ export async function deleteListing(id) {
         method: 'DELETE',
         headers: {
             Authorization: `Bearer ${accessToken}`,
-            'X-Noroff-API-Key': TEMP_API_KEY,
+            'X-Noroff-API-Key': API_KEY,
         },
     });
 

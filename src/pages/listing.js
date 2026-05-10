@@ -2,6 +2,7 @@ import { fetchListingById } from '../api/listings.js';
 import { renderListingGallery } from '../components/gallery.js';
 import { openModal, closeModal } from '../components/modal.js';
 import { isLoggedIn, getAuthData } from '../utils/storage.js';
+import { setupRedirectSearch } from '../utils/search.js';
 import { fetchProfile } from '../api/profiles.js';
 import { renderAvailableCredits } from '../components/userCredits.js';
 import { placeBid } from '../api/bids.js';
@@ -40,6 +41,8 @@ export async function initListingPage() {
     setupBidButton();
     setupBidModal();
     setupBidForm(listingId);
+
+    setupRedirectSearch();
 }
 
 function getListingIdFromUrl() {

@@ -1,0 +1,56 @@
+@use '../base/variables' as *;
+
+.listing-gallery {
+    max-width: 700px;
+    margin: 0 auto;
+
+    &__main {
+        display: grid;
+        grid-template-columns: auto 1fr auto;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    &__image {
+        width: 100%;
+        aspect-ratio: 4 / 3;
+        object-fit: cover;
+        background-color: $color-background;
+    }
+
+    &__btn {
+        border: none;
+        background-color: transparent;
+        font-size: 2.5rem;
+        line-height: 1;
+        padding: 0.5rem;
+        color: $color-primary;
+
+        &:hover {
+            opacity: 0.7;
+        }
+    }
+
+    &__thumbnails {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 0.5rem;
+        margin-top: 0.75rem;
+
+        img {
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            object-fit: cover;
+            cursor: pointer;
+            opacity: 0.55;
+            transition:
+                opacity 0.2s ease,
+                transform 0.2s ease;
+
+            &:hover {
+                opacity: 1;
+                transform: scale(1.03);
+            }
+        }
+    }
+}

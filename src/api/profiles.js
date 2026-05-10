@@ -1,11 +1,11 @@
 import { getAccessToken } from '../utils/storage.js';
-import { API_BASE_URL, TEMP_API_KEY } from './config.js';
+import { API_BASE_URL, API_KEY } from './config.js';
 
 export async function fetchProfile(name) {
     const response = await fetch(`${API_BASE_URL}/auction/profiles/${name}`, {
         headers: {
             Authorization: `Bearer ${getAccessToken()}`,
-            'X-Noroff-API-Key': TEMP_API_KEY,
+            'X-Noroff-API-Key': API_KEY,
         },
     });
 
@@ -22,7 +22,7 @@ export async function fetchProfileListings(name) {
     const response = await fetch(`${API_BASE_URL}/auction/profiles/${name}/listings`, {
         headers: {
             Authorization: `Bearer ${getAccessToken()}`,
-            'X-Noroff-API-Key': TEMP_API_KEY,
+            'X-Noroff-API-Key': API_KEY,
         },
     });
 
@@ -39,7 +39,7 @@ export async function fetchProfileBids(name) {
     const response = await fetch(`${API_BASE_URL}/auction/profiles/${name}/bids?_listings=true`, {
         headers: {
             Authorization: `Bearer ${getAccessToken()}`,
-            'X-Noroff-API-Key': TEMP_API_KEY,
+            'X-Noroff-API-Key': API_KEY,
         },
     });
 
@@ -58,7 +58,7 @@ export async function updateProfile(name, profileData) {
         headers: {
             'Content-Type': 'application/json',
             Authorization: `Bearer ${getAccessToken()}`,
-            'X-Noroff-API-Key': TEMP_API_KEY,
+            'X-Noroff-API-Key': API_KEY,
         },
         body: JSON.stringify(profileData),
     });

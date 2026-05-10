@@ -1,5 +1,6 @@
 import { sendLoginRequest } from '../api/auth.js';
 import { saveAuthData } from '../utils/storage.js';
+import { setupRedirectSearch } from '../utils/search.js';
 
 function displayLoginError(message) {
     const errorElement = document.getElementById('login-error');
@@ -15,6 +16,8 @@ export function initLoginPage() {
     if (!form) return;
 
     form.addEventListener('submit', handleLoginFormSubmit);
+
+    setupRedirectSearch();
 }
 
 async function handleLoginFormSubmit(event) {

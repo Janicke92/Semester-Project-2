@@ -1,5 +1,6 @@
 import { getAuthData } from '../utils/storage.js';
 import { fetchProfile, updateProfile } from '../api/profiles.js';
+import { setupRedirectSearch } from '../utils/search.js';
 
 export function initUpdateProfilePage() {
     const form = document.querySelector('#update-profile-form');
@@ -7,6 +8,8 @@ export function initUpdateProfilePage() {
     if (!form) {
         return;
     }
+
+    setupRedirectSearch();
 
     loadProfileForm();
 
